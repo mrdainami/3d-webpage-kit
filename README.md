@@ -1,13 +1,20 @@
-# Webpage Starter Kit
+# 3D Webpage Kit
 
-Build premium, mobile-friendly landing pages — with an Apple-style **scroll-scrubbed
-3D product hero** — using Claude Code. Plain HTML, CSS, and JS. No build step. You
-own the code and deploy it anywhere for free.
+Build premium, **Apple-style scroll-scrubbed 3D product pages** with Claude Code — the whole
+thing generated from a prompt. No photographer, no designer, no 3D software. Plain HTML/CSS/JS,
+no build step, deploy free. Claude directs kie.ai (any AI image/video model) to make the product
+visuals and the scroll animation.
 
-Two finished examples are included so you can see the bar:
-- `pages/example-sneaker.html` — a side-profile product turntable
-- `pages/example-airpods.html` — an **exploded-engineering** hero: the earbud flies
-  apart into its components with live scroll-synced part labels, then reassembles
+![Scroll-scrubbed exploded-engineering hero](docs/hero.gif)
+
+### ▶ See it live — scroll all three
+### **https://3d-webpage-kit.cal-272.workers.dev**
+
+| [![VELO — sneaker turntable](docs/thumb-sneaker.png)](https://3d-webpage-kit.cal-272.workers.dev/pages/sneaker.html) | [![PULSE — exploded earbuds](docs/thumb-airpods.png)](https://3d-webpage-kit.cal-272.workers.dev/pages/airpods.html) | [![Huriza — robot dog](docs/thumb-huriza.png)](https://3d-webpage-kit.cal-272.workers.dev/pages/huriza.html) |
+|:---:|:---:|:---:|
+| **VELO** · side-profile turntable | **PULSE** · exploded-engineering + live part labels | **Huriza** · a real product, built with the kit |
+
+The first two ship in this repo as `pages/`; Huriza is a real brand built with the kit.
 
 The kit gives Claude three things most people never give it — which is why pages
 come out looking *designed* instead of like generic AI slop:
