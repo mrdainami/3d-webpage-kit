@@ -8,7 +8,7 @@ This kit runs inside **Claude Code**. There are two levels — start at Level 1,
 
 You can design, edit, and ship pages with almost nothing installed.
 
-1. **Open the folder in Claude Code.** `cd webpage-starter-kit && claude`
+1. **Open the folder in Claude Code.** `cd 3d-webpage-kit && claude`
 2. **Build a page:** ask Claude to build one — it follows `CLAUDE.md` and composes from `sections/` using your `brand/tokens.css`. Preview locally: `python3 -m http.server 8000`.
 3. **Deploy (Cloudflare):** create a free Cloudflare account, then a token at
    <https://dash.cloudflare.com/profile/api-tokens> → *Create Token* → **Edit Cloudflare Workers**.

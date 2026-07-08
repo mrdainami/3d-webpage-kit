@@ -24,7 +24,7 @@ come out looking *designed* instead of like generic AI slop:
 
 ## Quickstart
 
-1. **Open this folder in Claude Code** (`cd webpage-starter-kit && claude`).
+1. **Open this folder in Claude Code** (`cd 3d-webpage-kit && claude`).
 2. **Add your keys:** copy `.env.example` → `.env`. You need a Cloudflare token to
    deploy; add a kie.ai key too if you want the AI hero animation. Full steps: **`SETUP.md`**.
 3. **Make it yours:** say *"set my brand"* — Claude sets your accent color, fonts, and
