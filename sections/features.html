@@ -1,0 +1,39 @@
+<!-- features — 3-up value grid. Benefit-first. Not a spec dump. -->
+<section class="section" id="features">
+  <div class="container">
+    <p class="eyebrow reveal">Why it wins</p>
+    <h2 class="reveal" style="max-width: 16ch; margin-bottom: var(--space-xl);">
+      Built to be felt, not noticed.
+    </h2>
+    <div class="feat">
+      <article class="feat__card reveal">
+        <div class="feat__num">01</div>
+        <h3>Weightless return</h3>
+        <p>A full-length carbon plate springs you forward so late miles feel like early ones.</p>
+      </article>
+      <article class="feat__card reveal">
+        <div class="feat__num">02</div>
+        <h3>Second-skin knit</h3>
+        <p>A seamless upper moves with your foot. No break-in, no hot spots, no lace bite.</p>
+      </article>
+      <article class="feat__card reveal">
+        <div class="feat__num">03</div>
+        <h3>Grip that reads the ground</h3>
+        <p>An adaptive outsole bites wet road and dry track without a gram of extra rubber.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feat { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+  .feat__card { background: var(--bg-elevated); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: var(--space-lg);
+    transition: border-color .3s var(--ease), transform .3s var(--ease); }
+  .feat__card:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+    transform: translateY(-4px); }
+  .feat__num { font-family: var(--font-display); font-size: var(--step-2);
+    color: var(--accent); margin-bottom: var(--space-sm); }
+  .feat__card h3 { font-size: var(--step-1); margin-bottom: var(--space-2xs); }
+  @media (max-width: 860px) { .feat { grid-template-columns: 1fr; } }
+</style>

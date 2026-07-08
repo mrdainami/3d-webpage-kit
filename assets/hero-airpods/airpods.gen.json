@@ -1,0 +1,15 @@
+{
+  "product": "AirPods-style earbuds — exploded-engineering scroll hero (demo)",
+  "model_image": "nano-banana-2",
+  "aspect": "16:9",
+  "stills": {
+    "case-closed":  { "taskId": "bc5dae796707bb1103c9922425036375", "state": "success", "file": "case-closed.png", "creditsConsumed": 8, "url": "https://tempfile.aiquickdraw.com/ggc/bc5dae796707bb1103c9922425036375_1783436561810.png" },
+    "case-open":    { "taskId": "db757d9a722eb45da0e2e452c941458a", "state": "success", "file": "case-open-v2.png", "creditsConsumed": 8, "note": "v2 — regenerated from case-closed (image_input) so it is the SAME case, opened; stemless in-ear buds. supersedes flat sport-case v1.", "url": "https://tempfile.aiquickdraw.com/ggc/db757d9a722eb45da0e2e452c941458a_1783438127327.png" },
+    "bud-hero":     { "taskId": "efc7d8d99cc8bae96ef06233f39a4aca", "state": "success", "file": "bud-hero-v3.png", "creditsConsumed": 8, "note": "v3 — STEMMED bud (head + stem/leg down) to match the seated buds. v1 stemmed-wrong-style, v2 stemless-wrong; v3 correct.", "url": "https://tempfile.aiquickdraw.com/ggc/efc7d8d99cc8bae96ef06233f39a4aca_1783439220709.png" },
+    "bud-exploded": { "taskId": "e9c8546c6b45043de63d1ef073996d18", "state": "success", "file": "bud-exploded-v4.png", "creditsConsumed": 8, "note": "v4 — faithful explosion of the EXACT bud-hero-v3 (fed as image_input): same head/stem/ring, shell opened, parts pull out; blank battery, no text. Gemini SAME_BUD/REASSEMBLES/NO_TEXT all PASS.", "url": "https://tempfile.aiquickdraw.com/workers/images/image_1783439990082_g67ws1.png" }
+  },
+  "stills_credits": 32,
+  "video_v1_superseded": { "taskId": "8b9471a20452d7c8444a0ccc37262e9b", "creditsConsumed": 1224, "note": "SUPERSEDED — product morphed (wrong open case + stemless bud). Refs fixed, regenerated as v2." },
+  "video": { "model": "bytedance/seedance-2", "mode": "multimodal-reference + timeline", "taskId": "b86fc85785e9566134754b556d3075be", "state": "success", "resolution": "1080p", "aspect": "16:9", "duration": 8, "audio": false, "creditsConsumed": 816, "dims": "1920x1080", "fps": 24, "url": "https://tempfile.aiquickdraw.com/h/b86fc85785e9566134754b556d3075be_1783440884.mp4", "file": "airpods-v2.mp4", "note": "v2 — corrected refs + return-to-case ending; 8s, long explosion hold for labels." },
+  "total_credits": 1888
+}

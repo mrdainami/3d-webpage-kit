@@ -1,0 +1,17 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# deps / os
+node_modules/
+.DS_Store
+*.log
+
+# scroll-hero WORKING artifacts — kept locally, not shipped.
+# (The finished, page-used frames in assets/frames/** DO ship. build-frames.sh + *.gen.json ship.)
+assets/hero-*/*.mp4
+assets/hero-*/case-*.png
+assets/hero-*/bud-*.png
+assets/hero-*/refs-mockup*.png
+assets/hero-*/_*/

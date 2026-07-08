@@ -1,0 +1,73 @@
+/* ============================================================
+   DESIGN TOKENS  —  the taste lives here
+   Swap these values for your brand. Every section reads ONLY
+   these variables, so changing a token re-skins the whole site.
+   This file is the reason the output looks designed, not slop.
+   ============================================================ */
+
+:root {
+  /* --- Color: restrained. One ink, one accent, real neutrals. --- */
+  /* Dark is the default because the scroll-hero product sits on black
+     and must blend into the page. Light theme tokens are below. */
+  --bg:            #08090c;   /* near-black page */
+  --bg-elevated:   #101319;   /* cards / raised surfaces */
+  --surface:       #171b23;   /* inputs, secondary blocks */
+  --line:          #232833;   /* hairline borders */
+
+  --text:          #f4f6fb;   /* primary text (never pure #fff) */
+  --text-muted:    #9aa3b2;   /* secondary text */
+  --text-faint:    #5b6473;   /* captions, labels */
+
+  --accent:        #6c5cff;   /* ONE accent. Change this first. */
+  --accent-strong: #8b7dff;   /* hover / emphasis */
+  --accent-ink:    #ffffff;   /* text on accent */
+
+  /* --- Type: one display face, one body face. That's it. --- */
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Type scale (fluid, clamps between mobile and desktop) */
+  --step--1: clamp(0.83rem, 0.79rem + 0.2vw, 0.94rem);
+  --step-0:  clamp(1rem,    0.95rem + 0.25vw, 1.13rem);
+  --step-1:  clamp(1.25rem, 1.15rem + 0.5vw,  1.6rem);
+  --step-2:  clamp(1.56rem, 1.4rem  + 0.8vw,  2.25rem);
+  --step-3:  clamp(1.95rem, 1.7rem  + 1.3vw,  3.2rem);
+  --step-4:  clamp(2.44rem, 2.0rem  + 2.2vw,  4.5rem);
+  --step-5:  clamp(3.05rem, 2.3rem  + 3.8vw,  6.5rem);
+
+  --tracking-tight: -0.03em;   /* display headings */
+  --tracking-wide:  0.12em;    /* eyebrows / labels, uppercase */
+  --leading-tight:  1.05;
+  --leading-body:   1.6;
+
+  /* --- Space: one 8px-based scale. Whitespace = premium. --- */
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6.5rem;
+  --space-3xl: 10rem;   /* section rhythm */
+
+  /* --- Shape & depth: subtle, consistent. --- */
+  --radius-sm: 10px;
+  --radius:    16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+  --shadow:    0 20px 60px -20px rgba(0,0,0,0.6);
+  --shadow-accent: 0 20px 60px -20px color-mix(in srgb, var(--accent) 40%, transparent);
+
+  /* --- Layout --- */
+  --container: 1200px;
+  --container-narrow: 760px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);   /* the one easing curve */
+}
+
+/* Light theme: flip these on <html data-theme="light"> if you want a
+   light site. The scroll-hero works best on dark, so keep the hero dark. */
+:root[data-theme="light"] {
+  --bg: #ffffff; --bg-elevated: #f6f7f9; --surface: #eef0f4; --line: #e3e6ec;
+  --text: #0c0e12; --text-muted: #565e6c; --text-faint: #8a92a0;
+  --accent-ink: #ffffff;
+}

@@ -1,0 +1,54 @@
+<!-- hero-scroll — the signature scroll-scrubbed product hero.
+     scroll-hero fills the data-* attributes with real frame paths + counts.
+     Overlay copy is pinned and fades in at scroll depths (data-at = 0..1). -->
+<section class="seq"
+         data-frames="../assets/frames/desktop" data-count="120"
+         data-frames-mobile="../assets/frames/mobile" data-count-mobile="48"
+         data-ext="webp" data-pad="4"
+         style="--seq-scroll: 340vh; --seq-scroll-mobile: 240vh;">
+  <div class="seq__pin">
+    <canvas class="seq__canvas" aria-label="Product animation"></canvas>
+    <!-- Copy overlays the pinned product; lives INSIDE the pin so it overlaps. -->
+    <div class="seq__overlay">
+      <div class="container" style="position:relative;height:100%;">
+        <div class="seq__caption seq__caption--top" data-at="0.0">
+          <p class="eyebrow">Introducing</p>
+          <h1>The last pair<br>you will ever run in.</h1>
+        </div>
+        <div class="seq__caption seq__caption--right" data-at="0.55">
+          <h3>Engineered to disappear.</h3>
+          <p>Carbon plate. Zero-drop knit. All the return, none of the weight.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .seq__caption { position: absolute; opacity: 0; transform: translateY(20px);
+    transition: opacity .6s var(--ease), transform .6s var(--ease); max-width: 30ch; }
+  .seq__caption.in { opacity: 1; transform: none; }
+  .seq__caption--top   { top: 14vh; left: var(--space-md); }
+  .seq__caption--right { top: 34vh; right: var(--space-md); text-align: right; margin-left: auto; }
+  .seq__caption h1 { font-size: var(--step-5); }
+  @media (max-width: 640px) {
+    .seq__caption--right { text-align: left; left: var(--space-md); right: auto; }
+    .seq__caption { max-width: 82vw; }
+  }
+</style>
+<script>
+  /* Fade captions in when their scroll depth is reached. */
+  (function () {
+    var seq = document.currentScript.closest('.seq');
+    var caps = seq.querySelectorAll('.seq__caption');
+    function tick() {
+      var r = seq.getBoundingClientRect();
+      var p = Math.max(0, Math.min(1, -r.top / (seq.offsetHeight - innerHeight)));
+      caps.forEach(function (c) {
+        var at = parseFloat(c.dataset.at || 0);
+        c.classList.toggle('in', p >= at && p <= at + 0.4);
+      });
+    }
+    addEventListener('scroll', tick, { passive: true }); addEventListener('resize', tick); tick();
+  })();
+</script>

@@ -1,0 +1,52 @@
+<!-- nav — sticky, minimal, collapses to a stacked menu on mobile -->
+<header class="nav">
+  <div class="container nav__row">
+    <a class="nav__brand" href="#">BRAND</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#specs">Specs</a>
+      <a href="#buy" class="btn btn-primary nav__cta">Buy</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .nav { position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--bg) 72%, transparent);
+    border-bottom: 1px solid var(--line); }
+  .nav__row { display: flex; align-items: center; justify-content: space-between;
+    padding-block: var(--space-sm); }
+  .nav__brand { font-family: var(--font-display); font-weight: 700;
+    letter-spacing: var(--tracking-tight); font-size: var(--step-1); }
+  .nav__links { display: flex; align-items: center; gap: var(--space-md); }
+  .nav__links a { color: var(--text-muted); font-size: var(--step-0); }
+  .nav__links a:hover { color: var(--text); }
+  .nav__cta { color: var(--accent-ink) !important; }
+  .nav__toggle { display: none; background: none; border: 0; cursor: pointer;
+    flex-direction: column; gap: 5px; padding: 8px; }
+  .nav__toggle span { width: 24px; height: 2px; background: var(--text); display: block; }
+  @media (max-width: 640px) {
+    .nav__toggle { display: flex; }
+    .nav__links { position: fixed; inset: 60px 0 auto 0; flex-direction: column;
+      align-items: stretch; gap: 0; padding: var(--space-sm) var(--space-md);
+      background: var(--bg-elevated); border-bottom: 1px solid var(--line);
+      transform: translateY(-120%); transition: transform .35s var(--ease); }
+    .nav__links.open { transform: none; }
+    .nav__links a { padding-block: var(--space-sm); }
+    .nav__cta { text-align: center; margin-top: var(--space-2xs); }
+  }
+</style>
+<script>
+  (function () {
+    var t = document.querySelector('.nav__toggle'), l = document.querySelector('.nav__links');
+    if (!t) return;
+    t.addEventListener('click', function () {
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open);
+    });
+  })();
+</script>

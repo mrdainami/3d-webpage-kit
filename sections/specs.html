@@ -1,0 +1,36 @@
+<!-- specs — a quiet stat row. Numbers count up when scrolled into view. -->
+<section class="section" id="specs" style="border-block: 1px solid var(--line);">
+  <div class="container stats">
+    <div class="stat reveal"><span class="stat__num" data-to="4">0</span><span class="stat__unit">mm</span><p>stack-to-drop</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="184">0</span><span class="stat__unit">g</span><p>per shoe</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="87">0</span><span class="stat__unit">%</span><p>energy return</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="600">0</span><span class="stat__unit">km</span><p>tested lifespan</p></div>
+  </div>
+</section>
+
+<style>
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+  .stat { text-align: center; }
+  .stat__num { font-family: var(--font-display); font-size: var(--step-4);
+    letter-spacing: var(--tracking-tight); color: var(--text); }
+  .stat__unit { font-family: var(--font-display); font-size: var(--step-2); color: var(--accent); }
+  .stat p { color: var(--text-faint); font-size: var(--step--1);
+    text-transform: uppercase; letter-spacing: var(--tracking-wide); margin: var(--space-2xs) auto 0; }
+  @media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); } }
+</style>
+<script>
+  (function () {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return; io.unobserve(e.target);
+        var el = e.target, to = +el.dataset.to, t0 = null;
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = to; return; }
+        function step(t) { t0 = t0 || t; var p = Math.min((t - t0) / 900, 1);
+          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.stat__num').forEach(function (n) { io.observe(n); });
+  })();
+</script>

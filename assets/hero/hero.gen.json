@@ -1,0 +1,14 @@
+{
+  "product": "VELO performance running sneaker (demo)",
+  "model_image": "nano-banana-2",
+  "aspect": "16:9",
+  "resolution": "2K",
+  "frames": {
+    "start": { "taskId": "429d9c77b3569caaea4debc10bae898e", "state": "success", "file": "still-start.png", "creditsConsumed": 12, "url": "https://tempfile.aiquickdraw.com/workers/images/image_1783418526409_nh8lvh.png" },
+    "end":   { "taskId": "5cacdf8b4ca50b1ac44cf4ae769720d9", "state": "success", "file": "still-end.png", "creditsConsumed": 12, "url": "https://tempfile.aiquickdraw.com/workers/images/image_1783418596362_2rp1ct.png" }
+  },
+  "video": { "model": "bytedance/seedance-2-mini", "mode": "start-end-frame", "taskId": "29d5a47f5024115b632a9f06d801c3f3", "state": "success", "creditsConsumed": 102.5, "resolution": "720p", "aspect": "16:9", "duration": 5, "audio": false, "url": "https://tempfile.aiquickdraw.com/seedance/1783419167116-rxrl1rxciv.mp4", "prompt": "timeline grammar v2 (hold -> rotate+tilt -> sole-reveal settle)" },
+  "frames_out": { "desktop": { "count": 121, "ext": "jpg", "fps": 24, "width": 1280 }, "mobile": { "count": 61, "ext": "jpg", "fps": 12, "width": 720 } },
+  "total_credits": 126.5
+
+}

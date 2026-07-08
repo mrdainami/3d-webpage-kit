@@ -1,0 +1,38 @@
+<!-- footer — quiet, structured, honest. -->
+<footer class="footer">
+  <div class="container footer__row">
+    <div>
+      <a class="nav__brand" href="#">BRAND</a>
+      <p class="footer__tag">Made to move.</p>
+    </div>
+    <nav class="footer__cols" aria-label="Footer">
+      <div><h4>Product</h4><a href="#features">Features</a><a href="#specs">Specs</a><a href="#buy">Buy</a></div>
+      <div><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Careers</a></div>
+      <div><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </nav>
+  </div>
+  <div class="container footer__base">
+    <span>© 2026 Brand. All rights reserved.</span>
+    <span>Built with <a class="footer__built" href="https://dainami.ai/resources/3d-webpage-kit" target="_blank" rel="noopener">the Webpage Starter Kit</a></span>
+  </div>
+</footer>
+
+<style>
+  .footer { border-top: 1px solid var(--line); padding-block: var(--space-xl) var(--space-lg);
+    background: var(--bg-elevated); }
+  .footer__row { display: flex; justify-content: space-between; gap: var(--space-xl);
+    flex-wrap: wrap; padding-bottom: var(--space-lg); }
+  .footer__tag { color: var(--text-faint); margin-top: var(--space-2xs); }
+  .footer__cols { display: flex; gap: var(--space-xl); flex-wrap: wrap; }
+  .footer__cols h4 { font-size: var(--step--1); text-transform: uppercase;
+    letter-spacing: var(--tracking-wide); color: var(--text-faint); margin-bottom: var(--space-xs); }
+  .footer__cols a { display: block; color: var(--text-muted); padding-block: 3px; }
+  .footer__cols a:hover { color: var(--text); }
+  .footer__base { display: flex; justify-content: space-between; gap: var(--space-md);
+    flex-wrap: wrap; padding-top: var(--space-md); border-top: 1px solid var(--line);
+    color: var(--text-faint); font-size: var(--step--1); }
+  /* subtle attribution — inherits the faint footer colour, gentle underline, brightens on hover */
+  .footer__built { color: inherit; text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent); }
+  .footer__built:hover { color: var(--text); border-bottom-color: var(--text); }
+</style>

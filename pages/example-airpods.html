@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PULSE — Sound, engineered.</title>
+  <meta name="description" content="PULSE wireless earbuds. Adaptive audio, all-day battery, engineered to disappear.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../brand/tokens.css">
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="../assets/scroll-sequence.css">
+
+  <style>
+    :root { --accent: #c8ff00; --accent-strong: #d9ff4d; --accent-ink: #0a0b0d;
+            --shadow-accent: 0 20px 60px -20px color-mix(in srgb, #c8ff00 45%, transparent);
+            --font-display: "Archivo", sans-serif; }
+  </style>
+</head>
+<body>
+
+<!-- ===== nav ===== -->
+<header class="nav">
+  <div class="container nav__row">
+    <a class="nav__brand" href="#">PULSE</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#specs">Specs</a>
+      <a href="#buy" class="btn btn-primary nav__cta">Pre-order</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===== hero-scroll: palindrome (open -> explode -> close), centered product ===== -->
+<section class="seq"
+         data-frames="../assets/frames/airpods-desktop" data-count="199"
+         data-frames-mobile="../assets/frames/airpods-mobile" data-count-mobile="99"
+         data-ext="webp" data-pad="4"
+         data-fit="subject" data-subject="0.72" data-anchor-x="0.5" data-anchor-y="0.62"
+         data-subject-mobile="0.94" data-anchor-x-mobile="0.5" data-anchor-y-mobile="0.6"
+         style="--seq-scroll: 620vh; --seq-scroll-mobile: 380vh;">
+  <div class="seq__pin">
+    <canvas class="seq__canvas" aria-label="Earbud animation"></canvas>
+    <div class="seq__vignette"></div>
+
+    <div class="seq__overlay">
+      <div class="seq__act in" data-in="0" data-out="0.13">
+        <p class="eyebrow">Introducing PULSE</p>
+        <h1>Sound,<br>engineered.</h1>
+      </div>
+      <div class="seq__act" data-in="0.16" data-out="0.29">
+        <p class="eyebrow">Open instantly</p>
+        <h2>Ready the<br>moment you are.</h2>
+      </div>
+      <div class="seq__act" data-in="0.31" data-out="0.42">
+        <p class="eyebrow">Featherlight</p>
+        <h2>Barely there.<br>All day long.</h2>
+      </div>
+      <!-- explosion window (~0.44-0.60): eyebrow only up top; the labels carry the story -->
+      <div class="seq__act" data-in="0.44" data-out="0.60">
+        <p class="eyebrow">Engineering you can see</p>
+      </div>
+      <div class="seq__act" data-in="0.68" data-out="0.82">
+        <p class="eyebrow">Adaptive audio</p>
+        <h2>It reads<br>the room.</h2>
+      </div>
+      <div class="seq__act" data-in="0.88" data-out="1.01">
+        <p class="eyebrow">From $199</p>
+        <h2>Meet PULSE.</h2>
+        <a href="#buy" class="btn btn-primary" style="margin-top:var(--space-sm)">Pre-order</a>
+      </div>
+    </div>
+
+    <!-- callout labels — shown only during the exploded HOLD, pointing to each part -->
+    <div class="seq__callouts" aria-hidden="true">
+      <div class="co" style="--x:43.7%"><span class="co__dot"></span><span class="co__stem"></span><span class="co__label">Titanium driver</span></div>
+      <div class="co co--long" style="--x:50.9%"><span class="co__dot"></span><span class="co__stem"></span><span class="co__label">Neural audio chip</span></div>
+      <div class="co" style="--x:57.8%"><span class="co__dot"></span><span class="co__stem"></span><span class="co__label">All-day battery</span></div>
+      <div class="co co--long" style="--x:64.4%"><span class="co__dot"></span><span class="co__stem"></span><span class="co__label">Beamforming mics</span></div>
+      <div class="co" style="--x:72.7%"><span class="co__dot"></span><span class="co__stem"></span><span class="co__label">Adaptive tip</span></div>
+    </div>
+
+    <div class="seq__hint" aria-hidden="true"><span>Scroll</span></div>
+  </div>
+</section>
+
+<!-- ===== features ===== -->
+<section class="section" id="features">
+  <div class="container">
+    <p class="eyebrow reveal">Why PULSE</p>
+    <h2 class="reveal" style="max-width:16ch;margin-bottom:var(--space-xl);">Built to be heard, not felt.</h2>
+    <div class="feat">
+      <article class="feat__card reveal"><div class="feat__num">01</div><h3>Adaptive audio</h3><p>Noise cancellation and transparency blend in real time, so the world fades exactly as much as you want.</p></article>
+      <article class="feat__card reveal"><div class="feat__num">02</div><h3>All-day battery</h3><p>Eight hours a charge, thirty in the case. A five-minute top-up buys you two more hours.</p></article>
+      <article class="feat__card reveal"><div class="feat__num">03</div><h3>Second-skin fit</h3><p>Three tip sizes and a featherlight shell that stays put through a run and disappears on a call.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== specs ===== -->
+<section class="section" id="specs" style="border-block:1px solid var(--line);">
+  <div class="container stats">
+    <div class="stat reveal"><span class="stat__num" data-to="8">0</span><span class="stat__unit">hr</span><p>per charge</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="30">0</span><span class="stat__unit">hr</span><p>with case</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="5">0</span><span class="stat__unit">g</span><p>per bud</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="2">0</span><span class="stat__unit">x</span><p>more ANC</p></div>
+  </div>
+</section>
+
+<!-- ===== cta ===== -->
+<section class="section" id="buy">
+  <div class="container narrow cta">
+    <h2 class="reveal">Hear the difference.</h2>
+    <p class="reveal">Limited first run. Free returns for 30 days. Yours the moment you press play.</p>
+    <div class="cta__actions reveal">
+      <a href="#" class="btn btn-primary">Pre-order — $199</a>
+      <a href="#specs" class="btn btn-ghost">See the specs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== footer ===== -->
+<footer class="footer">
+  <div class="container footer__row">
+    <div><a class="nav__brand" href="#">PULSE</a><p class="footer__tag">Sound, engineered.</p></div>
+    <nav class="footer__cols" aria-label="Footer">
+      <div><h4>Product</h4><a href="#features">Features</a><a href="#specs">Specs</a><a href="#buy">Buy</a></div>
+      <div><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Careers</a></div>
+      <div><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </nav>
+  </div>
+  <div class="container footer__base"><span>© 2026 PULSE. All rights reserved.</span><span>Built with <a class="footer__built" href="https://dainami.ai/resources/3d-webpage-kit" target="_blank" rel="noopener">the Webpage Starter Kit</a></span></div>
+</footer>
+
+<!-- ===== styles for inlined sections ===== -->
+<style>
+  /* Kill transition/animation flicker while the window is actively resizing — e.g. the
+     mobile nav (green Pre-order button) sliding as the layout crosses the 640px breakpoint. */
+  html.is-resizing *, html.is-resizing *::before, html.is-resizing *::after {
+    transition: none !important; animation-duration: 0s !important; }
+  .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--bg) 72%, transparent); border-bottom: 1px solid var(--line); }
+  .nav__row { display: flex; align-items: center; justify-content: space-between; padding-block: var(--space-sm); }
+  .nav__brand { font-family: var(--font-display); font-weight: 800; letter-spacing: var(--tracking-tight); font-size: var(--step-1); }
+  .nav__links { display: flex; align-items: center; gap: var(--space-md); }
+  .nav__links a { color: var(--text-muted); font-size: var(--step-0); }
+  .nav__links a:hover { color: var(--text); }
+  .nav__cta { color: var(--accent-ink) !important; }
+  .nav__toggle { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
+  .nav__toggle span { width: 24px; height: 2px; background: var(--text); display: block; }
+  @media (max-width: 640px) {
+    .nav__toggle { display: flex; }
+    .nav__links { position: fixed; inset: 60px 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
+      padding: var(--space-sm) var(--space-md); background: var(--bg-elevated); border-bottom: 1px solid var(--line);
+      transform: translateY(-140%); transition: transform .35s var(--ease); }
+    .nav__links.open { transform: none; }
+    .nav__links a { padding-block: var(--space-sm); }
+  }
+  /* ===== LOCKED hero engine rules (carried from the sneaker demo) ===== */
+  /* Ambient glow follows the product; AirPods sit CENTER so the glow is centered. */
+  .seq__vignette { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    --glow-x: 50%; --glow-y: 50%;
+    background:
+      radial-gradient(50% 54% at var(--glow-x) var(--glow-y), rgba(210,220,255,0.14), rgba(255,255,255,0.04) 45%, transparent 72%),
+      radial-gradient(120% 120% at 50% 30%, #14161c 0%, #000 72%); }
+  /* Stage lives BELOW the sticky nav; full-bleed canvas so no side/top clip; --nav-h measured live. */
+  .seq__pin { display: block; top: var(--nav-h, 64px); height: calc(100svh - var(--nav-h, 64px)); }
+  .seq__canvas { position: absolute; inset: 0; z-index: 1;
+    filter: drop-shadow(0 0 30px rgba(200,255,0,0.16)) drop-shadow(0 26px 46px rgba(0,0,0,0.7)); }
+  .seq__overlay { position: absolute; inset: 0; z-index: 2; }
+  /* CENTERED composition: copy is a TOP band (product sits center-frame). */
+  .seq__act { position: absolute; inset: 0 0 auto 0; width: auto;
+    padding: 11vh var(--space-md) 0; display: flex; flex-direction: column;
+    justify-content: flex-start; align-items: center; text-align: center; gap: var(--space-2xs);
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .seq__act.in { opacity: 1; transform: none; }
+  .seq__act.out { opacity: 0; transform: translateY(-20px); }
+  .seq__act h1 { font-size: clamp(2rem, 6vw, 4.6rem); line-height: 1.0; letter-spacing: var(--tracking-tight); }
+  .seq__act h2 { font-size: clamp(1.5rem, 4.4vw, 3rem); line-height: 1.04; letter-spacing: var(--tracking-tight); }
+  .seq__act .eyebrow { font-size: clamp(0.64rem, 1.2vw, 0.82rem); }
+  /* ===== callout labels on the exploded parts ===== */
+  .seq__callouts { position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    opacity: 0; transition: opacity .5s var(--ease); }
+  .seq__callouts.in { opacity: 1; }
+  .co { position: absolute; top: 57%; left: var(--x); transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; }
+  .co__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 10px 1px color-mix(in srgb, var(--accent) 70%, transparent); }
+  .co__stem { width: 1px; height: 46px; background: linear-gradient(var(--accent), color-mix(in srgb, var(--accent) 10%, transparent)); }
+  .co--long .co__stem { height: 92px; }
+  .co__label { font-family: var(--font-display); font-weight: 600; font-size: clamp(0.66rem, 1.05vw, 0.86rem);
+    letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--text); white-space: nowrap;
+    background: color-mix(in srgb, var(--bg) 55%, transparent); padding: 4px 8px; border-radius: var(--radius-sm);
+    backdrop-filter: blur(4px); }
+  /* PHONE: text stays top; product centered-lower; hide the fine callouts (too dense at 390px). */
+  @media (max-width: 640px) {
+    .seq__act { padding: 13vh var(--space-md) 0; }
+    .seq__act h1 { font-size: clamp(2.1rem, 9vw, 3rem); }
+    .seq__act h2 { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+    .seq__vignette { --glow-y: 60%; }
+    .seq__callouts { display: none; }
+  }
+  .seq__hint { position: absolute; left: 50%; bottom: var(--space-lg); transform: translateX(-50%);
+    z-index: 3; color: var(--text-faint); font-size: var(--step--1); text-transform: uppercase;
+    letter-spacing: var(--tracking-wide); transition: opacity .5s var(--ease); }
+  .seq__hint span::after { content: ""; display: block; width: 1px; height: 26px; margin: 8px auto 0;
+    background: linear-gradient(var(--text-faint), transparent);
+    animation: hintpulse 1.8s var(--ease) infinite; }
+  @keyframes hintpulse { 0%,100% { opacity: .2; transform: translateY(0); } 50% { opacity: 1; transform: translateY(4px); } }
+  .seq__hint.gone { opacity: 0; }
+  .feat { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-md); }
+  .feat__card { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: var(--space-lg); transition: border-color .3s var(--ease), transform .3s var(--ease); }
+  .feat__card:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); transform: translateY(-4px); }
+  .feat__num { font-family: var(--font-display); font-size: var(--step-2); color: var(--accent); margin-bottom: var(--space-sm); }
+  .feat__card h3 { font-size: var(--step-1); margin-bottom: var(--space-2xs); }
+  @media (max-width: 860px) { .feat { grid-template-columns: 1fr; } }
+  .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-md); }
+  .stat { text-align: center; }
+  .stat__num { font-family: var(--font-display); font-size: var(--step-4); letter-spacing: var(--tracking-tight); }
+  .stat__unit { font-family: var(--font-display); font-size: var(--step-2); color: var(--accent); }
+  .stat p { color: var(--text-faint); font-size: var(--step--1); text-transform: uppercase; letter-spacing: var(--tracking-wide); margin: var(--space-2xs) auto 0; }
+  @media (max-width: 640px) { .stats { grid-template-columns: repeat(2,1fr); gap: var(--space-lg); } }
+  .cta { text-align: center; display: grid; gap: var(--space-md); justify-items: center; }
+  .cta h2 { font-size: var(--step-5); }
+  .cta p { max-width: 46ch; }
+  .cta__actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center; }
+  .footer { border-top: 1px solid var(--line); padding-block: var(--space-xl) var(--space-lg); background: var(--bg-elevated); }
+  .footer__row { display: flex; justify-content: space-between; gap: var(--space-xl); flex-wrap: wrap; padding-bottom: var(--space-lg); }
+  .footer__tag { color: var(--text-faint); margin-top: var(--space-2xs); }
+  .footer__cols { display: flex; gap: var(--space-xl); flex-wrap: wrap; }
+  .footer__cols h4 { font-size: var(--step--1); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--text-faint); margin-bottom: var(--space-xs); }
+  .footer__cols a { display: block; color: var(--text-muted); padding-block: 3px; }
+  .footer__cols a:hover { color: var(--text); }
+  .footer__base { display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; padding-top: var(--space-md); border-top: 1px solid var(--line); color: var(--text-faint); font-size: var(--step--1); }
+  .footer__built { color: inherit; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent); }
+  .footer__built:hover { color: var(--text); border-bottom-color: var(--text); }
+</style>
+
+<!-- ===== scripts ===== -->
+<script>
+  // Measure the sticky nav height into --nav-h so the stage sits exactly below it.
+  (function(){var nav=document.querySelector('.nav'),seq=document.querySelector('.seq');
+    function setNav(){ if(nav&&seq) seq.style.setProperty('--nav-h', Math.round(nav.getBoundingClientRect().height)+'px'); }
+    setNav(); window.addEventListener('resize', setNav);})();
+</script>
+<script src="../assets/scroll-sequence.js"></script>
+<script>
+  // nav toggle
+  (function(){var t=document.querySelector('.nav__toggle'),l=document.querySelector('.nav__links');
+    if(t)t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o);});})();
+  // suppress transitions while resizing (stops the breakpoint-crossing nav slide)
+  (function(){var t,h=document.documentElement;addEventListener('resize',function(){h.classList.add('is-resizing');clearTimeout(t);t=setTimeout(function(){h.classList.remove('is-resizing');},140);},{passive:true});})();
+  // reveal on scroll
+  (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});})();
+  // hero choreography: one act at a time + callouts during the explosion window + scroll hint
+  (function(){var seq=document.querySelector('.seq');if(!seq)return;
+    var acts=seq.querySelectorAll('.seq__act');var hint=seq.querySelector('.seq__hint');var callouts=seq.querySelector('.seq__callouts');
+    function tick(){var r=seq.getBoundingClientRect();var p=Math.max(0,Math.min(1,-r.top/(seq.offsetHeight-innerHeight)));
+      acts.forEach(function(a){var i=parseFloat(a.dataset.in),o=parseFloat(a.dataset.out);
+        a.classList.toggle('in',p>=i&&p<=o);a.classList.toggle('out',p>o);});
+      if(callouts)callouts.classList.toggle('in',p>=0.45&&p<=0.59);
+      if(hint)hint.classList.toggle('gone',p>0.02);}
+    addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);tick();})();
+  // stat count-up
+  (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);
+    var el=e.target,to=+el.dataset.to,t0=null;if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=to;return;}
+    function step(t){t0=t0||t;var p=Math.min((t-t0)/900,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);});},{threshold:.6});
+    document.querySelectorAll('.stat__num').forEach(function(n){io.observe(n);});})();
+</script>
+</body>
+</html>

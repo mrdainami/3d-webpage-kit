@@ -1,0 +1,39 @@
+/* Scroll-sequence layout. The section is TALL (--seq-scroll) to give
+   scrub distance; the canvas is PINNED (sticky) so the product holds
+   still on screen while you scroll through its frames. */
+
+.seq {
+  position: relative;
+  height: var(--seq-scroll, 300vh);   /* runway: more = slower scrub */
+  background: #000;                    /* pure black to match the frame backgrounds */
+}
+
+.seq__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;                      /* respects mobile browser chrome */
+  display: grid;
+  place-items: center;
+  overflow: clip;
+}
+
+.seq__canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Copy overlaid on the pinned stage. The overlay lives INSIDE .seq__pin so it
+   overlaps the canvas (a sibling after the pin would start below the fold).
+   Captions are absolutely placed and toggled .in at scroll depth. */
+.seq__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  /* Shorter runway on mobile: fewer frames, quicker scrub, less scrolling. */
+  .seq { height: var(--seq-scroll-mobile, 220vh); }
+}

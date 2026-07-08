@@ -1,0 +1,63 @@
+/* Base element styles — built only on tokens.css. Import tokens first. */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 600;
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-5); }
+h2 { font-size: var(--step-4); }
+h3 { font-size: var(--step-2); }
+
+p { color: var(--text-muted); max-width: 62ch; text-wrap: pretty; }
+a { color: inherit; text-decoration: none; }
+img, video, canvas { display: block; max-width: 100%; }
+
+/* Layout helpers */
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--space-md); }
+.narrow   { max-width: var(--container-narrow); }
+.section  { padding-block: var(--space-3xl); }
+@media (max-width: 640px) { .section { padding-block: var(--space-2xl); } }
+
+/* Eyebrow / label */
+.eyebrow {
+  font-size: var(--step--1); text-transform: uppercase;
+  letter-spacing: var(--tracking-wide); color: var(--accent-strong);
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--space-2xs);
+  padding: 0.9em 1.5em; border-radius: var(--radius-full);
+  font-weight: 600; font-size: var(--step-0); cursor: pointer;
+  border: 1px solid transparent; transition: transform .25s var(--ease), background .25s var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: var(--shadow-accent); }
+.btn-primary:hover { background: var(--accent-strong); }
+.btn-ghost { border-color: var(--line); color: var(--text); }
+.btn-ghost:hover { border-color: var(--text-muted); }
+
+/* Reveal-on-scroll (progressive; no framework) */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }

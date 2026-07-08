@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VELO — The last pair you will ever run in.</title>
+  <meta name="description" content="A carbon-plated performance running shoe. Weightless return, second-skin knit, grip that reads the ground.">
+
+  <!-- Fonts: Archivo (display) + Inter (body), per the sneaker demo brief -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../brand/tokens.css">
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="../assets/scroll-sequence.css">
+
+  <!-- Demo brand overrides: Volt accent + Archivo display (the rest stays token-driven) -->
+  <style>
+    :root { --accent: #c8ff00; --accent-strong: #d9ff4d; --accent-ink: #0a0b0d;
+            --shadow-accent: 0 20px 60px -20px color-mix(in srgb, #c8ff00 45%, transparent);
+            --font-display: "Archivo", sans-serif; }
+  </style>
+</head>
+<body>
+
+<!-- ===== nav ===== -->
+<header class="nav">
+  <div class="container nav__row">
+    <a class="nav__brand" href="#">VELO</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#specs">Specs</a>
+      <a href="#buy" class="btn btn-primary nav__cta">Pre-order</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===== hero-scroll (frames drop in at Phase 1; headline shows now) ===== -->
+<section class="seq"
+         data-frames="../assets/frames/hero-desktop" data-count="121"
+         data-frames-mobile="../assets/frames/hero-mobile" data-count-mobile="61"
+         data-ext="webp" data-pad="4"
+         data-fit="subject" data-subject="0.74" data-anchor-x="0.72" data-anchor-y="0.5"
+         data-subject-mobile="0.86" data-anchor-x-mobile="0.5" data-anchor-y-mobile="0.68"
+         style="--seq-scroll: 480vh; --seq-scroll-mobile: 320vh;">
+  <div class="seq__pin">
+    <canvas class="seq__canvas" aria-label="Sneaker animation"></canvas>
+    <div class="seq__vignette"></div>
+    <div class="seq__overlay">
+      <div class="seq__act in" data-in="0" data-out="0.24">
+        <p class="eyebrow">Introducing VELO</p>
+        <h1>The last pair<br>you'll run in.</h1>
+      </div>
+      <div class="seq__act" data-in="0.36" data-out="0.58">
+        <p class="eyebrow">Engineered to disappear</p>
+        <h2>All the return.<br>None of the weight.</h2>
+        <p class="seq__body">A full-length carbon plate and a seamless zero-drop knit, tuned to vanish under your stride.</p>
+      </div>
+      <div class="seq__act" data-in="0.70" data-out="0.94">
+        <p class="eyebrow">The propulsion plate</p>
+        <h2>Engineering<br>you can see.</h2>
+        <p class="seq__body">Turn it over: the volt carbon plate is right there, doing the work on every step.</p>
+      </div>
+    </div>
+    <div class="seq__hint" aria-hidden="true"><span>Scroll</span></div>
+  </div>
+</section>
+
+<!-- ===== features ===== -->
+<section class="section" id="features">
+  <div class="container">
+    <p class="eyebrow reveal">Why it wins</p>
+    <h2 class="reveal" style="max-width:16ch;margin-bottom:var(--space-xl);">Built to be felt, not noticed.</h2>
+    <div class="feat">
+      <article class="feat__card reveal"><div class="feat__num">01</div><h3>Weightless return</h3><p>A full-length carbon plate springs you forward so late miles feel like early ones.</p></article>
+      <article class="feat__card reveal"><div class="feat__num">02</div><h3>Second-skin knit</h3><p>A seamless upper moves with your foot. No break-in, no hot spots, no lace bite.</p></article>
+      <article class="feat__card reveal"><div class="feat__num">03</div><h3>Grip that reads the ground</h3><p>An adaptive outsole bites wet road and dry track without a gram of extra rubber.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== specs ===== -->
+<section class="section" id="specs" style="border-block:1px solid var(--line);">
+  <div class="container stats">
+    <div class="stat reveal"><span class="stat__num" data-to="4">0</span><span class="stat__unit">mm</span><p>stack-to-drop</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="184">0</span><span class="stat__unit">g</span><p>per shoe</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="87">0</span><span class="stat__unit">%</span><p>energy return</p></div>
+    <div class="stat reveal"><span class="stat__num" data-to="600">0</span><span class="stat__unit">km</span><p>tested lifespan</p></div>
+  </div>
+</section>
+
+<!-- ===== cta ===== -->
+<section class="section" id="buy">
+  <div class="container narrow cta">
+    <h2 class="reveal">Own the pair.</h2>
+    <p class="reveal">Limited first run. Free returns for 30 days. Yours to keep the moment you lace up.</p>
+    <div class="cta__actions reveal">
+      <a href="#" class="btn btn-primary">Pre-order — $180</a>
+      <a href="#specs" class="btn btn-ghost">See the specs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== footer ===== -->
+<footer class="footer">
+  <div class="container footer__row">
+    <div><a class="nav__brand" href="#">VELO</a><p class="footer__tag">Made to move.</p></div>
+    <nav class="footer__cols" aria-label="Footer">
+      <div><h4>Product</h4><a href="#features">Features</a><a href="#specs">Specs</a><a href="#buy">Buy</a></div>
+      <div><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Careers</a></div>
+      <div><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </nav>
+  </div>
+  <div class="container footer__base"><span>© 2026 VELO. All rights reserved.</span><span>Built with <a class="footer__built" href="https://dainami.ai/resources/3d-webpage-kit" target="_blank" rel="noopener">the Webpage Starter Kit</a></span></div>
+</footer>
+
+<!-- ===== styles for inlined sections ===== -->
+<style>
+  .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--bg) 72%, transparent); border-bottom: 1px solid var(--line); }
+  .nav__row { display: flex; align-items: center; justify-content: space-between; padding-block: var(--space-sm); }
+  .nav__brand { font-family: var(--font-display); font-weight: 800; letter-spacing: var(--tracking-tight); font-size: var(--step-1); }
+  .nav__links { display: flex; align-items: center; gap: var(--space-md); }
+  .nav__links a { color: var(--text-muted); font-size: var(--step-0); }
+  .nav__links a:hover { color: var(--text); }
+  .nav__cta { color: var(--accent-ink) !important; }
+  .nav__toggle { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
+  .nav__toggle span { width: 24px; height: 2px; background: var(--text); display: block; }
+  @media (max-width: 640px) {
+    .nav__toggle { display: flex; }
+    .nav__links { position: fixed; inset: 60px 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
+      padding: var(--space-sm) var(--space-md); background: var(--bg-elevated); border-bottom: 1px solid var(--line);
+      transform: translateY(-140%); transition: transform .35s var(--ease); }
+    .nav__links.open { transform: none; }
+    .nav__links a { padding-block: var(--space-sm); }
+  }
+  /* ambient "set" we control — a soft studio spotlight behind the matted shoe so the
+     matte-black product reads against it (full-bleed CSS, so no rectangle/seam). */
+  /* Ambient "set" glow sits BEHIND wherever the shoe is (--glow-x / --glow-y), so it reads
+     as a halo, not a stray patch. Desktop: shoe is right-of-centre. Mobile overrides below. */
+  .seq__vignette { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    --glow-x: 62%; --glow-y: 50%;
+    background:
+      radial-gradient(54% 58% at var(--glow-x) var(--glow-y), rgba(210,220,255,0.14), rgba(255,255,255,0.04) 45%, transparent 72%),
+      radial-gradient(120% 120% at 55% 28%, #14161c 0%, #000 72%); }
+  /* Both layers are pinned to the SAME 1200px container the nav uses, so the copy lines
+     up under "VELO" and the product's right edge lines up under the "Pre-order" button.
+     The ambient glow (.seq__vignette) stays full-bleed behind for atmosphere. */
+  /* --edge = the exact left/right inset of the nav's 1200px container, so the copy starts
+     under "VELO" and the product's right edge ends under the "Pre-order" button. */
+  /* The stage lives BELOW the sticky nav (top = nav height, height = screen - nav), so the
+     product can never reach up behind the header, and the pinned position is identical at
+     scroll-zero and while scrolling (no first-frame jump). --nav-h is measured live in JS. */
+  .seq__pin { display: block;
+    --edge: max(var(--space-md), calc((100% - var(--container)) / 2 + var(--space-md)));
+    top: var(--nav-h, 64px); height: calc(100svh - var(--nav-h, 64px)); }
+  /* FULL-BLEED within the below-nav band: subject-fit guarantees the shoe always fits
+     inside a full-width canvas, so no side can ever be clipped. The right-edge lines up
+     with the Pre-order button via anchor-x instead of by clipping the box. */
+  .seq__canvas { position: absolute; inset: 0; z-index: 1;
+    filter: drop-shadow(0 0 34px rgba(200,255,0,0.20)) drop-shadow(0 26px 46px rgba(0,0,0,0.75)); }
+  .seq__overlay { position: absolute; inset: 0; z-index: 2; }  /* text layer, above the shoe */
+  .seq__act { position: absolute; top: 0; bottom: 0; left: var(--edge); right: auto;
+    width: min(42ch, 46%); display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start; gap: var(--space-sm);
+    padding-bottom: 5vh;  /* nudge the copy above dead-centre so top/bottom air balances */
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .seq__act.in { opacity: 1; transform: none; }
+  .seq__act.out { opacity: 0; transform: translateY(-24px); }
+  /* Fluid, column-aware type: scales with the viewport so it never overflows its half. */
+  .seq__act h1 { font-size: clamp(1.5rem, 4.6vw, 4rem); line-height: 1.02; }
+  .seq__act h2 { font-size: clamp(1.25rem, 3.4vw, 2.6rem); line-height: 1.06; }
+  .seq__act .eyebrow { font-size: clamp(0.62rem, 1.2vw, 0.8rem); }
+  .seq__body { color: var(--text-muted); max-width: 34ch;
+    font-size: clamp(0.8rem, 1.5vw, 1rem); }
+  /* PHONE only (<=640): title sits high just under the nav (small gap, not a huge void),
+     the shoe (via anchor-y-mobile) fills the lower half. anchor-x-mobile centers it. */
+  @media (max-width: 640px) {
+    .seq__act { inset: 0 0 auto 0; width: auto; height: auto;
+      justify-content: flex-start; align-items: flex-start;
+      padding: 15vh var(--space-md) 0; }
+    .seq__act h1 { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+    .seq__act h2 { font-size: clamp(1.5rem, 6.4vw, 2.2rem); }
+    .seq__body { font-size: 0.95rem; max-width: 40ch; }
+    /* shoe is centered + lower on phones, so the glow follows it there */
+    .seq__vignette { --glow-x: 50%; --glow-y: 68%; }
+  }
+  .seq__hint { position: absolute; left: 50%; bottom: var(--space-lg); transform: translateX(-50%);
+    z-index: 3; color: var(--text-faint); font-size: var(--step--1); text-transform: uppercase;
+    letter-spacing: var(--tracking-wide); transition: opacity .5s var(--ease); }
+  .seq__hint span::after { content: ""; display: block; width: 1px; height: 26px; margin: 8px auto 0;
+    background: linear-gradient(var(--text-faint), transparent);
+    animation: hintpulse 1.8s var(--ease) infinite; }
+  @keyframes hintpulse { 0%,100% { opacity: .2; transform: translateY(0); } 50% { opacity: 1; transform: translateY(4px); } }
+  .seq__hint.gone { opacity: 0; }
+  .feat { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-md); }
+  .feat__card { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: var(--space-lg); transition: border-color .3s var(--ease), transform .3s var(--ease); }
+  .feat__card:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); transform: translateY(-4px); }
+  .feat__num { font-family: var(--font-display); font-size: var(--step-2); color: var(--accent); margin-bottom: var(--space-sm); }
+  .feat__card h3 { font-size: var(--step-1); margin-bottom: var(--space-2xs); }
+  @media (max-width: 860px) { .feat { grid-template-columns: 1fr; } }
+  .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-md); }
+  .stat { text-align: center; }
+  .stat__num { font-family: var(--font-display); font-size: var(--step-4); letter-spacing: var(--tracking-tight); }
+  .stat__unit { font-family: var(--font-display); font-size: var(--step-2); color: var(--accent); }
+  .stat p { color: var(--text-faint); font-size: var(--step--1); text-transform: uppercase; letter-spacing: var(--tracking-wide); margin: var(--space-2xs) auto 0; }
+  @media (max-width: 640px) { .stats { grid-template-columns: repeat(2,1fr); gap: var(--space-lg); } }
+  .cta { text-align: center; display: grid; gap: var(--space-md); justify-items: center; }
+  .cta h2 { font-size: var(--step-5); }
+  .cta p { max-width: 46ch; }
+  .cta__actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center; }
+  .footer { border-top: 1px solid var(--line); padding-block: var(--space-xl) var(--space-lg); background: var(--bg-elevated); }
+  .footer__row { display: flex; justify-content: space-between; gap: var(--space-xl); flex-wrap: wrap; padding-bottom: var(--space-lg); }
+  .footer__tag { color: var(--text-faint); margin-top: var(--space-2xs); }
+  .footer__cols { display: flex; gap: var(--space-xl); flex-wrap: wrap; }
+  .footer__cols h4 { font-size: var(--step--1); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--text-faint); margin-bottom: var(--space-xs); }
+  .footer__cols a { display: block; color: var(--text-muted); padding-block: 3px; }
+  .footer__cols a:hover { color: var(--text); }
+  .footer__base { display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; padding-top: var(--space-md); border-top: 1px solid var(--line); color: var(--text-faint); font-size: var(--step--1); }
+  .footer__built { color: inherit; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent); }
+  .footer__built:hover { color: var(--text); border-bottom-color: var(--text); }
+</style>
+
+<!-- ===== scripts ===== -->
+<script>
+  // Measure the sticky nav's height into --nav-h so the hero stage can sit exactly below it.
+  // Runs BEFORE the scroll engine so the canvas is sized to the below-nav band from the start.
+  (function(){var nav=document.querySelector('.nav'),seq=document.querySelector('.seq');
+    function setNav(){ if(nav&&seq) seq.style.setProperty('--nav-h', Math.round(nav.getBoundingClientRect().height)+'px'); }
+    setNav(); window.addEventListener('resize', setNav);})();
+</script>
+<script src="../assets/scroll-sequence.js"></script>
+<script>
+  // nav toggle
+  (function(){var t=document.querySelector('.nav__toggle'),l=document.querySelector('.nav__links');
+    if(t)t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o);});})();
+  // reveal on scroll
+  (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});})();
+  // hero choreography: one act at a time (enter from below, exit upward) + scroll hint
+  (function(){var seq=document.querySelector('.seq');if(!seq)return;
+    var acts=seq.querySelectorAll('.seq__act');var hint=seq.querySelector('.seq__hint');
+    function tick(){var r=seq.getBoundingClientRect();var p=Math.max(0,Math.min(1,-r.top/(seq.offsetHeight-innerHeight)));
+      acts.forEach(function(a){var i=parseFloat(a.dataset.in),o=parseFloat(a.dataset.out);
+        a.classList.toggle('in',p>=i&&p<=o);a.classList.toggle('out',p>o);});
+      if(hint)hint.classList.toggle('gone',p>0.02);}
+    addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);tick();})();
+  // stat count-up
+  (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);
+    var el=e.target,to=+el.dataset.to,t0=null;if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=to;return;}
+    function step(t){t0=t0||t;var p=Math.min((t-t0)/900,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);});},{threshold:.6});
+    document.querySelectorAll('.stat__num').forEach(function(n){io.observe(n);});})();
+</script>
+</body>
+</html>
