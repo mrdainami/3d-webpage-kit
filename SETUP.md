@@ -12,15 +12,15 @@ You can design, edit, and ship pages with almost nothing installed.
 2. **Build a page:** ask Claude to build one — it follows `CLAUDE.md` and composes from `sections/` using your `brand/tokens.css`. Preview locally: `python3 -m http.server 8000`.
 3. **Deploy (Cloudflare):** create a free Cloudflare account, then a token at
    <https://dash.cloudflare.com/profile/api-tokens> → *Create Token* → **Edit Cloudflare Workers**.
-   Make your `.env` and paste in your token + Account ID:
-   ```bash
-   cp .env.example .env      # creates your .env from the template
-   open -e .env              # opens it to edit (Linux: nano .env)
-   ```
-   Fill `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` (Account ID is on the Cloudflare
+   Make your `.env`: in the kit folder, **duplicate `.env.example` and rename the copy to
+   `.env`** (no terminal needed — right-click → Duplicate, then rename). Open it and fill in
+   `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` (Account ID is on the Cloudflare
    dashboard). Save. Then just tell Claude **"deploy this"** (it runs `npx wrangler deploy`).
-   > **Can't see `.env` in Finder?** Files starting with a dot are hidden by macOS. Use the
-   > `open -e .env` command above, or press **Cmd + Shift + . (period)** in Finder to reveal them.
+
+   ![Duplicate .env.example and rename the copy to .env, then paste your keys in](docs/step-env-finder.png)
+
+   > Prefer the terminal? `cp .env.example .env` does the same thing.
+   > **Can't see `.env` in Finder?** Dot-files are hidden by macOS — press **Cmd + Shift + . (period)** to reveal them.
    > Prefer another host? The output is plain static files — Netlify, Vercel, and GitHub Pages all work.
 
 That's it for regular pages. No AI keys needed.
