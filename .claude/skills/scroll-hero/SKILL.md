@@ -63,61 +63,84 @@ the camera **LOCKED** on any beat that needs annotation labels (a moving target
 can't hold labels). If the arc opens and closes, see **Palindrome** (Step 4) —
 you may only need to storyboard the FORWARD half.
 
-### Step 2 — Consistent keyframes (Nano Banana, ~8–12cr each) — THE lesson
-Generate one still per keyframe pose. **The #1 mistake is generating each still
-independently from text — you get a different product every time** (different case
-shape, stemmed vs stemless, etc.). Instead **CHAIN them**:
+### Step 2 — Product master + storyboard sheet (GPT Image 2) — the v2 method
+**This replaced chained keyframes** (v1, kept below as fallback). Two images total,
+both gated:
 
-1. Generate the **anchor** keyframe from text (the hero pose). Lock: matte finish,
-   accent color, `pure black studio void`, `no text, no logo, no labels`, 16:9.
-2. Generate **every other** keyframe by feeding the previous one as `image_input`
-   with a "keep it identical, only change X" instruction — never from scratch.
+**2a. Product master** — `gpt-image-2-text-to-image`, 16:9, `resolution: "4K"`.
+One definitive hero still. Lock: finish, accent, `pure black studio void`,
+`ABSOLUTELY NO text, letters, numbers, logos, or labels anywhere`. This is the
+single identity anchor for everything downstream. **GATE: user approves the product.**
+
+**2b. Storyboard sheet** — `gpt-image-2-image-to-image`, `input_urls:[master]`,
+16:9, `resolution: "2K"`. **ONE image containing all beats as numbered panels**
+(3×2 grid for 6 beats works well). Because every panel comes out of a single
+generation anchored to the master, product identity AND motion continuity are
+consistent *by construction* — no chain to drift. Each panel must render: a big
+panel number (top-left), a small timestamp for its slice of the clip, and a
+one-line caption bar. The ONLY text in the image is those labels — the product
+itself stays clean (forbid engraved pseudo-text on movements/parts and duplicate
+crowns/stems explicitly; GPT Image 2 renders panel text legibly, which is why
+it's locked for this step). **GATE: user approves the sheet — the last cheap step.**
 
 ```jsonc
-// image-to-image chain — model "nano-banana-2", standard envelope
-{ "model":"nano-banana-2",
-  "input":{ "prompt":"Take the EXACT product in the reference image and <do X>. Keep the
-              identical shape, proportions, finish, and accent — do NOT redesign it. …
-              ABSOLUTELY NO text, letters, numbers, or labels anywhere.",
-            "image_input":["<url of the previous keyframe>"],
-            "aspect_ratio":"16:9", "output_format":"png" } }
+// storyboard sheet — standard envelope
+{ "model":"gpt-image-2-image-to-image",
+  "input":{ "prompt":"A film director's storyboard sheet …, 3-column by 2-row grid …
+              Every panel shows THE EXACT SAME product as the reference image …
+              Panel 1 — timestamp '0:00-1.5s' — <beat>. Caption: '<caption>' …",
+            "input_urls":["<master url>"], "aspect_ratio":"16:9", "resolution":"2K" } }
 ```
-- For an **exploded view**, feed the hero bud and say *"exploded diagram of THIS
-  exact product… every part reassembles into the reference."* Watch for the model
-  stamping text on parts (e.g. a battery) — our prompt must forbid it explicitly.
 - The kie image endpoint throws transient 500/524s — **resubmit** (0cr on fail).
+- Inspect at full zoom before showing the user: crop-zoom any part that tends to
+  carry engraved text (movements, chips, batteries).
 
-**GATE (before any video spend):** tile the keyframes into one mockup, then **LOOK at it
-yourself** and confirm: same product across every panel? no stray text/letters? do the
-exploded parts reassemble into the hero? Any FAIL → regenerate that frame from the anchor,
-don't proceed. Show the mockup to the user for a final yes. Only pass a set where all frames
-are unmistakably one product.
-*(Optional: a Gemini-Flash `visual-qc` script can pre-flag `SAME_PRODUCT / NO_TEXT / REASSEMBLES`
-cheaply — but your own eyes are the check that matters and are all that's required.)*
+*(v1 fallback — chained keyframes with nano-banana-2: anchor from text, then each
+next frame image-to-image from the PREVIOUS frame — strictly sequential, "this is
+the NEXT keyframe of a continuous film, only change X". Use when a sheet's panels
+come out inconsistent for a complex product.)*
 
-### Step 3 — Direct the video (Seedance 2.0, ~102cr/s at 1080p — confirm cost first)
-Seedance does **one continuous, directed, multi-beat clip** and **flows between
-beats with no hard cuts** — perfect for scrubbing. Feed the keyframes as
-**multimodal references** and direct a timeline. (First-frame / first+last /
-multimodal-reference are mutually exclusive — use multimodal-reference here.)
+### Step 3 — Direct the video (Seedance 2.0 Mini — the project default; confirm cost first)
+**Default model: `bytedance/seedance-2-mini`, 720p, 16:9** (~205cr for 10s vs
+~1020cr for Pro 1080p; 720p output is 1280px wide = exactly the desktop slice
+width, so nothing is lost for this pipeline). Seedance does **one continuous,
+directed, multi-beat clip** with no hard cuts — perfect for scrubbing. Feed the
+**storyboard sheet + product master** as multimodal references and transcribe the
+panels into SHOT blocks — the storyboard prompting method. (First-frame /
+first+last / multimodal-reference are mutually exclusive — use multimodal here.)
 
 ```jsonc
-{ "model":"bytedance/seedance-2",
-  "input":{ "reference_image_urls":["<@image1>","<@image2>","<@image3>","<@image4>"], // ≤9
-            "generate_audio":false, "resolution":"1080p", "aspect_ratio":"16:9", "duration":8,
-            "prompt":"<5-block prompt below>" } }
+{ "model":"bytedance/seedance-2-mini",
+  "input":{ "reference_image_urls":["<storyboard sheet url>","<master url>"], // ≤9
+            "generate_audio":false, "resolution":"720p", "aspect_ratio":"16:9", "duration":10,
+            "prompt":"<storyboard prompt below>" } }
 ```
-**5-block prompt** (max 20000 chars):
+**Storyboard prompt structure** (max 20000 chars):
 1. **SHOT SPEC** — `single continuous shot · 16:9 · pure black studio void · audio off`
-2. **REFERENCE SLOTS** — one line per ref in array order: `@image1 = closed case (hero + first/last frame)…`
-3. **TIMELINE** — `[0s] orbit… [2s] lid opens (match @image2)… [4s] EXPLODES (match @image4), parts HOLD — camera LOCKED… [6.5s] reassembles… [7.2s] back into case`
-4. **CONSISTENCY LOCK** — identity + finish + accent 100% identical; exploded parts exactly @image4; NO text/labels.
-5. **STYLE TAIL** — `black void, soft key + accent rim, shallow DoF, premium product film, ultra sharp, no blur/ghosting/flicker, stable, no text. audio off.`
+2. **REFERENCE IMAGE SLOTS** — `Image 1 = storyboard sheet — beat layout only`,
+   `Image 2 = product identity master`.
+3. **THE NOTE (required)** — `NOTE: Image 1 (storyboard) is a layout reference only —
+   do NOT render panel grids, borders, numbers, timestamps, captions, or any text in
+   the output. The shot compositions are described in the SHOT blocks below. The
+   product in every frame must match Image 2 exactly.`
+4. **CONSISTENCY LOCK** — identity + finish + accent 100% identical to Image 2;
+   exploded parts exactly Panel <N> of Image 1 and they reassemble; exactly ONE of
+   any single component (crowns/stems duplicate easily); NO text/labels anywhere.
+5. **TIMELINE — one SHOT block per storyboard panel**, tagged with the panel's
+   timestamp, opening `match Panel N of Image 1:` and then **literally transcribing
+   that panel's composition in spatial language** (where each element sits in frame,
+   camera move) — never paraphrased intent. Camera explicitly `LOCKED, zero movement`
+   during the exploded HOLD (a moving target can't hold labels).
+6. **STYLE TAIL** — `black void, soft key + accent rim, shallow DoF, premium product
+   film, ultra sharp, no blur/ghosting/flicker/morphing, stable, no text. audio off.`
 
 Duration note: scrub smoothness comes from FRAME COUNT (set at slice), not
-duration — but the **explosion must HOLD long enough** for the label section, and
-7 beats need room. 8–12s is the sweet spot. Persist the taskId to `.gen.json`
-immediately (billed on submit). Park `kie-watch.sh <taskId>` in the background.
+duration — but the **explosion must HOLD long enough** for the label section.
+8–12s is the sweet spot. Persist the taskId to `.gen.json` immediately (billed on
+submit) and read the account balance before/after submit to report the exact
+charge (`GET /api/v1/chat/credit`). Park the wait in the background.
+**GATE before submitting:** show the user the full prompt + params + cost estimate
+(publish it where they can actually read it) and get an explicit go.
 
 ### Step 4 — Frames: slice → matte → transparent WebP
 See `assets/hero-airpods/build-frames.sh` for the exact, working script. Core:
@@ -189,5 +212,7 @@ re-reading this file. See `assets/hero-airpods/airpods.gen.json` for the shape.
 ## Improve
 When the user corrects something (a pose, an anchor, a label position), fold the
 fix into THIS file so the next hero starts closer to right. Hard-won so far:
-chain keyframes for consistency · Seedance multimodal-ref+timeline over start-end ·
-rembg isnet for fine parts · palindrome for clean closes · measure canvas for labels.
+chain keyframes for consistency · chain SEQUENTIALLY (prev frame, not anchor) so
+frames also flow as motion · Seedance multimodal-ref+timeline over start-end ·
+rembg isnet for fine parts · palindrome for clean closes · measure canvas for labels ·
+watch products: forbid engraved "text" on movements/parts and duplicate crowns/stems.
